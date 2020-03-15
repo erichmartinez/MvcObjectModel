@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MvcObjectModel.Models.PersonModel1>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Children
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.people2.Count)*@
+
+                @foreach (var p2 in item.people2)
+                {
+                <li>@p2.Name - @p2.ID</li>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
